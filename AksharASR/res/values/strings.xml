@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Akshar ASR</string>
+	<string name="record_button">Record Button</string>
+	<string name="asrtextdata">Press and Say</string>      
+</resources>
