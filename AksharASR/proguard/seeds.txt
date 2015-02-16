@@ -87,9 +87,9 @@ android.support.v4.widget.SwipeRefreshLayout: void setColorScheme(int[])
 android.support.v4.widget.SwipeRefreshLayout: void setColorSchemeResources(int[])
 android.support.v4.widget.SwipeRefreshLayout: void setColorSchemeColors(int[])
 android.support.v4.widget.SwipeRefreshLayout: void setDistanceToTriggerSync(int)
-com.aksharspeech.aksharasr.CyberNASR
-com.aksharspeech.aksharasr.CyberNASR: CyberNASR()
-com.aksharspeech.aksharasr.CyberNASR: void onAsrClick(android.view.View)
+com.aksharspeech.aksharasr.AksharASRActivity
+com.aksharspeech.aksharasr.AksharASRActivity: AksharASRActivity()
+com.aksharspeech.aksharasr.AksharASRActivity: void onAsrClick(android.view.View)
 com.aksharspeech.aksharasr.R$drawable: int ic_action_pausebutton
 com.aksharspeech.aksharasr.R$drawable: int ic_action_playbutton
 com.aksharspeech.aksharasr.R$drawable: int ic_action_rec

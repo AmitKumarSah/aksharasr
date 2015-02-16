@@ -119,7 +119,6 @@ public class FileUploader {
 				res = res + line;
 			}
 			in.close();
-			Log.i("AMIT", "("+res+")");
 			return res;
 
 		} catch (Exception e) {
@@ -172,7 +171,6 @@ public class FileUploader {
 				
 			}
 			in.close();
-			Log.i("AMIT", "("+res+")");
 			return res;
 
 		} catch (Exception e) {

@@ -1795,11 +1795,26 @@ com.aksharspeech.aksharasr.R$id
 com.aksharspeech.aksharasr.R$layout
 com.aksharspeech.aksharasr.R$string
 com.aksharspeech.aksharasr.R$style
-com.aksharspeech.aksharasr.asr.Constants
-com.aksharspeech.aksharasr.asr.SpeechRecoziser:
+com.aksharspeech.aksharasr.asr.AksharASR:
     private static final int RECORD_BUTTON_ON
     private static final int RECORD_BUTTON_STOP
+com.aksharspeech.aksharasr.asr.Constants
+com.aksharspeech.aksharasr.asr.SpeechRecoziser
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$1
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$2
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$3
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$4
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$5
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$6
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$7
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$7$1
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$8
+com.aksharspeech.aksharasr.asr.SpeechRecoziser$9
 com.aksharspeech.aksharasr.asr.Utils
+com.aksharspeech.aksharasr.net.FileUploader:
+    91:127:private java.lang.String publish(java.lang.String,java.io.File,java.lang.String)
+    193:196:public java.lang.String getPostData(java.lang.String,java.lang.String)
+    203:235:private java.lang.String getData(java.lang.String)
 com.aksharspeech.aksharasr.net.MultiPartFormOutputStream:
     private static final java.lang.String NEWLINE
     private static final java.lang.String PREFIX

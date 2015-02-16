@@ -31,5 +31,6 @@ public class Constants {
 	public static final String mUploadURL = mBaseURL + "asrapi.php";
 	public static final String mDecodeURL = mBaseURL + "decode.php";
 	public static final String Tag = "Akshar_ASR";
+	public static final String ITEM_NOT_FOUND="_%#NOT FOUND#%_";
 
 }

@@ -206,17 +206,6 @@ public class AksharASR {
 		});
 	}
 
-	/**
-	 * Its handler for Audio Decoder. It will show on the UI
-	 * 
-	 * @param response
-	 */
-	private void doPostData(String response) {
-		Log.i("doPostData", response);
-		doOnUI("You asked for " + response.substring(response.indexOf("#RESULT=")+8) + ".");
-		mIsDecoding = false;
-		resetText();
-	}
 	// File Uploading section
 	/**
 	 * After the Error Message is over.
@@ -234,7 +223,6 @@ public class AksharASR {
 
 	}
 
-	
 	/**
 	 * Its handler for Audio Uploaded to decode the audio file
 	 * 
@@ -242,15 +230,21 @@ public class AksharASR {
 	 *            Message received from server
 	 */
 	private void doPostUpload_NEW(String response) {
-		Log.i("doPostUpload_new", response);
 		if (response != null && response.contains("Error")) {
 			Log.e("doPostUpload_error", response);
 			doTost(response);
 			doPostError();
 
+		}
+		if (response != null && response.contains(Constants.ITEM_NOT_FOUND)) {
+			// item not found
+			doOnUI("Kindly ask again! \n(commodities item only).");
+			mIsDecoding = false;
+			resetText();
 		} else {
-
-			doPostData(response);
+			doOnUI("You asked for " + response + ".");
+			mIsDecoding = false;
+			resetText();
 		}
 
 	}
@@ -534,6 +528,7 @@ public class AksharASR {
 		}
 		return bytes;
 	}
+
 	/**
 	 * stop recording Akshar
 	 */
@@ -613,23 +608,46 @@ public class AksharASR {
 					Looper.myLooper().quit();
 					return;
 				}
-				String response = mFileUpload.uploadFile(Constants.mUploadURL,
-						audiofilename, getEMINumber(mAct));
-				if (response != null && response.contains("Error")) {
-					Log.e("UPLOADER", response);
-					doTost(response);
-					doPostError();
-					Looper.myLooper().quit();
-				} else {
-					doOnUIText("Recognizing....");
-					doPostUpload_NEW(response);
-					Looper.myLooper().quit();
+				try {
+					String response = mFileUpload.uploadFile(
+							Constants.mUploadURL, audiofilename,
+							getEMINumber(mAct));
+					if (response != null && response.contains("Error")) {
+						Log.e("UPLOADER", response);
+						doTost(response);
+						doPostError();
+						Looper.myLooper().quit();
+					} else {
+						doOnUIText("Recognizing....");
+						doPostUpload_NEW(response);
+						Looper.myLooper().quit();
+					}
+
+				} catch (Exception e) {
+					if (mFileUpload == null) {
+						mFileUpload = new FileUploader();
+					}
+					String response = mFileUpload.uploadFile(
+							Constants.mUploadURL, audiofilename,
+							getEMINumber(mAct));
+					if (response != null && response.contains("Error")) {
+						Log.e("UPLOADER", response);
+						doTost(response);
+						doPostError();
+						Looper.myLooper().quit();
+					} else {
+						doOnUIText("Recognizing....");
+						doPostUpload_NEW(response);
+						Looper.myLooper().quit();
+					}
 				}
+
 				Looper.loop();
 			}
 		}, "FileUploaderThread");
 		th.start();
 	}
+
 	private void writeAudioDataToFileWithGain() {
 		short data[] = new short[bufferSize];
 		String filename = this.mTempAudioFile;

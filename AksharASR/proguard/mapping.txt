@@ -1643,114 +1643,111 @@ android.support.v4.widget.ViewDragHelper$Callback -> android.support.v4.widget.a
     boolean tryCaptureView(android.view.View,int) -> a
     int clampViewPositionHorizontal(android.view.View,int,int) -> a
     int clampViewPositionVertical(android.view.View,int,int) -> b
-com.aksharspeech.aksharasr.CyberNASR -> com.aksharspeech.aksharasr.CyberNASR:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser cnSpeechRecoz -> a
+com.aksharspeech.aksharasr.AksharASRActivity -> com.aksharspeech.aksharasr.AksharASRActivity:
+    com.aksharspeech.aksharasr.asr.AksharASR cnSpeechRecoz -> a
     void onCreate(android.os.Bundle) -> onCreate
     void onAsrClick(android.view.View) -> onAsrClick
+    void onPause() -> onPause
     void onBackPressed() -> onBackPressed
     void onStart() -> onStart
     void onDestroy() -> onDestroy
     void onStop() -> onStop
     void onResume() -> onResume
     void onRestart() -> onRestart
-com.aksharspeech.aksharasr.asr.SpeechRecoziser -> com.aksharspeech.aksharasr.a.a:
+com.aksharspeech.aksharasr.asr.AksharASR -> com.aksharspeech.aksharasr.a.a:
     float mGain -> d
-    int bufferSize -> e
-    android.app.Activity mAct -> f
-    java.lang.String mCurrentAudioFileName -> g
-    com.aksharspeech.aksharasr.net.FileUploader mFileUpload -> h
-    boolean mIsDecoding -> i
-    boolean mIsRecording -> j
+    int sIDRecordButton -> e
+    int sIDStopButton -> f
+    int bufferSize -> g
+    android.app.Activity mAct -> h
+    java.lang.String mCurrentAudioFileName -> i
+    com.aksharspeech.aksharasr.net.FileUploader mFileUpload -> j
+    boolean mIsDecoding -> k
+    boolean mIsRecording -> l
     long mPauseTime -> a
-    java.lang.String mTempAudioFile -> k
+    java.lang.String mTempAudioFile -> m
+    long mTotalRead -> n
     android.media.AudioRecord recorder -> b
     java.lang.Thread recordingThread -> c
-    int sIDRecordButton -> l
-    int sIDStopButton -> m
-    long mTotalRead -> n
-    boolean cancelWaveRecord() -> d
+    boolean cancelWaveRecord() -> f
     void copyWaveFile(java.lang.String,java.lang.String) -> a
-    void deleteTempFile() -> e
+    void createRecorder() -> g
+    void deleteTempFile() -> h
+    boolean destoryWaveRecord() -> i
     void doOnUI(java.lang.String) -> a
     void doOnUIText(java.lang.String) -> b
-    void doPostData(java.lang.String) -> c
-    void doPostError() -> f
-    void doPostUpload(java.lang.String) -> d
-    void doTost(java.lang.String) -> e
-    byte[] gainAudio(short[],int,float) -> a
-    void initWaveRecorder() -> g
-    void invokeRecorder(float) -> a
+    void doPostError() -> j
+    void doPostUpload_NEW(java.lang.String) -> c
+    void doTost(java.lang.String) -> d
+    byte[] gainAudio(short[],int) -> a
+    java.lang.String getEMINumber(android.content.Context) -> a
+    void initWaveRecorder() -> k
+    void invokeRecorder() -> l
     void onDestory() -> a
-    void onRecordClick() -> b
-    boolean pauseDuration() -> c
-    void resetText() -> h
+    void onPause() -> b
+    void onRecordClick() -> c
+    void onStart() -> d
+    boolean pauseDuration() -> e
+    void resetText() -> m
     int searchThreshold(short[]) -> a
-    java.lang.String setAudioTempFile() -> i
+    java.lang.String setAudioTempFile() -> n
     void setRecorderButton(int) -> a
     byte[] short2byte(short[]) -> b
-    void stopRecord() -> j
-    void stopRecording() -> k
-    void uploadFile(java.lang.String) -> f
-    void writeAudioDataToFileWithGain(float) -> b
+    void stopRecord() -> o
+    void stopRecording() -> p
+    void uploadFile(java.lang.String) -> e
+    void writeAudioDataToFileWithGain() -> q
     void WriteWaveFileHeader(java.io.FileOutputStream,long,long,long,int,long) -> a
-    java.lang.String getEMINumber(android.content.Context) -> a
-    android.app.Activity access$0(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> a
-    void access$1(com.aksharspeech.aksharasr.asr.SpeechRecoziser,boolean) -> a
-    com.aksharspeech.aksharasr.net.FileUploader access$2(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> b
-    void access$3(com.aksharspeech.aksharasr.asr.SpeechRecoziser,java.lang.String) -> a
-    void access$4(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> c
-    void access$5(com.aksharspeech.aksharasr.asr.SpeechRecoziser,java.lang.String) -> b
-    void access$6(com.aksharspeech.aksharasr.asr.SpeechRecoziser,float) -> a
-    boolean access$7(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> d
-    boolean access$8(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> e
-    void access$9(com.aksharspeech.aksharasr.asr.SpeechRecoziser,java.lang.String) -> c
-    long access$10(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> f
-    void access$11(com.aksharspeech.aksharasr.asr.SpeechRecoziser,java.lang.String) -> d
-    void access$12(com.aksharspeech.aksharasr.asr.SpeechRecoziser) -> g
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$1 -> com.aksharspeech.aksharasr.a.b:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+    android.app.Activity access$0(com.aksharspeech.aksharasr.asr.AksharASR) -> a
+    void access$1(com.aksharspeech.aksharasr.asr.AksharASR,boolean) -> a
+    void access$2(com.aksharspeech.aksharasr.asr.AksharASR) -> b
+    boolean access$3(com.aksharspeech.aksharasr.asr.AksharASR) -> c
+    boolean access$4(com.aksharspeech.aksharasr.asr.AksharASR) -> d
+    void access$5(com.aksharspeech.aksharasr.asr.AksharASR,java.lang.String) -> a
+    long access$6(com.aksharspeech.aksharasr.asr.AksharASR) -> e
+    void access$7(com.aksharspeech.aksharasr.asr.AksharASR) -> f
+    com.aksharspeech.aksharasr.net.FileUploader access$8(com.aksharspeech.aksharasr.asr.AksharASR) -> g
+    void access$9(com.aksharspeech.aksharasr.asr.AksharASR,java.lang.String) -> b
+    void access$10(com.aksharspeech.aksharasr.asr.AksharASR,java.lang.String) -> c
+    void access$11(com.aksharspeech.aksharasr.asr.AksharASR) -> h
+com.aksharspeech.aksharasr.asr.AksharASR$1 -> com.aksharspeech.aksharasr.a.b:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     java.lang.String val$msg -> b
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$2 -> com.aksharspeech.aksharasr.a.c:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+com.aksharspeech.aksharasr.asr.AksharASR$2 -> com.aksharspeech.aksharasr.a.c:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     java.lang.String val$msg -> b
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$3 -> com.aksharspeech.aksharasr.a.d:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+com.aksharspeech.aksharasr.asr.AksharASR$3 -> com.aksharspeech.aksharasr.a.d:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$4 -> com.aksharspeech.aksharasr.a.e:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
-    void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$5 -> com.aksharspeech.aksharasr.a.f:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+com.aksharspeech.aksharasr.asr.AksharASR$4 -> com.aksharspeech.aksharasr.a.e:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     java.lang.String val$msg -> b
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$6 -> com.aksharspeech.aksharasr.a.g:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
-    float val$gain -> b
+com.aksharspeech.aksharasr.asr.AksharASR$5 -> com.aksharspeech.aksharasr.a.f:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$7 -> com.aksharspeech.aksharasr.a.h:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+com.aksharspeech.aksharasr.asr.AksharASR$6 -> com.aksharspeech.aksharasr.a.g:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     void run() -> run
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser access$0(com.aksharspeech.aksharasr.asr.SpeechRecoziser$7) -> a
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$7$1 -> com.aksharspeech.aksharasr.a.i:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser$7 this$1 -> a
+    com.aksharspeech.aksharasr.asr.AksharASR access$0(com.aksharspeech.aksharasr.asr.AksharASR$6) -> a
+com.aksharspeech.aksharasr.asr.AksharASR$6$1 -> com.aksharspeech.aksharasr.a.h:
+    com.aksharspeech.aksharasr.asr.AksharASR$6 this$1 -> a
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$8 -> com.aksharspeech.aksharasr.a.j:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+com.aksharspeech.aksharasr.asr.AksharASR$7 -> com.aksharspeech.aksharasr.a.i:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     java.lang.String val$audiofilename -> b
     void run() -> run
-com.aksharspeech.aksharasr.asr.SpeechRecoziser$9 -> com.aksharspeech.aksharasr.a.k:
-    com.aksharspeech.aksharasr.asr.SpeechRecoziser this$0 -> a
+com.aksharspeech.aksharasr.asr.AksharASR$8 -> com.aksharspeech.aksharasr.a.j:
+    com.aksharspeech.aksharasr.asr.AksharASR this$0 -> a
     void run() -> run
 com.aksharspeech.aksharasr.net.FileUploader -> com.aksharspeech.aksharasr.b.a:
     java.util.Properties mimeTypesProperties -> a
     void toastit(java.lang.String) -> a
     java.lang.String uploadFile(java.lang.String,java.lang.String,java.lang.String) -> a
     java.lang.String getExtension(java.io.File) -> a
-    java.lang.String publish(java.lang.String,java.io.File,java.lang.String) -> a
-    java.lang.String getPostData(java.lang.String,java.lang.String) -> a
-    java.lang.String getData(java.lang.String) -> b
+    java.lang.String publishASR(java.lang.String,java.io.File,java.lang.String) -> a
 com.aksharspeech.aksharasr.net.MultiPartFormOutputStream -> com.aksharspeech.aksharasr.b.b:
     java.io.DataOutputStream out -> a
     java.lang.String boundary -> b
