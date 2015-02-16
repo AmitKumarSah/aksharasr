@@ -28,8 +28,8 @@ public class Constants {
 	public static final String AUDIO_RECORDER_TEMP_FILE = "record_temp.raw";
 	//public static final String mBaseURL = "http://msg2voice.com/ASR/";
 	public static final String mBaseURL = "http://23.23.157.102/ASR/";
-	public static final String mUploadURL = mBaseURL + "uploader.php";
+	public static final String mUploadURL = mBaseURL + "asrapi.php";
 	public static final String mDecodeURL = mBaseURL + "decode.php";
-	public static final String Tag = "CyberN_ASR";
+	public static final String Tag = "Akshar_ASR";
 
 }

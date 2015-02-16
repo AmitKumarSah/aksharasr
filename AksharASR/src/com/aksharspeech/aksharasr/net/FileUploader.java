@@ -60,7 +60,7 @@ public class FileUploader {
 				Log.i("FileUploader.uploadFile", fileList.getAbsolutePath());
 			} else
 				return "Error Audiofile not exists. Kindly try again ";
-			return publish(url, fileList, imieno);
+			return publishASR(url, fileList, imieno);
 		} catch (Exception e) {
 			return "Error occured. Kindly try again";
 		}
@@ -128,6 +128,60 @@ public class FileUploader {
 			return "Error Occured While Uploading Your file to Server.";
 		}
 	}
+	
+	
+	/**
+	 * Upload the file to server
+	 * 
+	 * @param url
+	 * @param files
+	 * @param imieno
+	 */
+	private String publishASR(String url, File files, String imieno) {
+
+		try {
+			String boundary = MultiPartFormOutputStream.createBoundary();
+			URLConnection urlConn = MultiPartFormOutputStream
+					.createConnection(url);
+			urlConn.setRequestProperty("Accept", "*/*");
+			urlConn.setRequestProperty("Content-Type",
+					MultiPartFormOutputStream.getContentType(boundary));
+			urlConn.setRequestProperty("Connection", "Keep-Alive");
+			urlConn.setRequestProperty("Cache-Control", "no-cache");
+			MultiPartFormOutputStream out = new MultiPartFormOutputStream(
+					urlConn.getOutputStream(), boundary);
+			out.writeField("ASR_DEVICE_TYPE", "ANDROID_MOBILE");
+			out.writeField("mobileemi", imieno);
+			File f = files;
+			String mimeType = mimeTypesProperties.getProperty(getExtension(f)
+					.toLowerCase(Locale.getDefault()));
+			if (mimeType == null) {
+				mimeType = "application/octet-stream";
+			}
+			
+			out.writeFile("file", mimeType, f);
+			out.close();
+			toastit("Waiting to get upload the file");
+			// read response from server
+			String line = "";
+			String res = "";
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					urlConn.getInputStream()));
+			while ((line = in.readLine()) != null) {
+				res = res + line;
+				
+			}
+			in.close();
+			Log.i("AMIT", "("+res+")");
+			return res;
+
+		} catch (Exception e) {
+			toastit("Exception -----------" + e.getMessage());
+			e.printStackTrace();
+			return "Error Occured While Uploading Your file to Server.";
+		}
+	}
+
 
 	/**
 	 * getPostData
