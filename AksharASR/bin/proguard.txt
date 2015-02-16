@@ -1,0 +1,7 @@
+# view AndroidManifest.xml #generated:27
+-keep class com.aksharspeech.aksharasr.CyberNASR { <init>(...); }
+
+# onClick res/layout/ly_activity_asr.xml #generated:8
+# onClick res/layout/ly_asr.xml #generated:7
+-keepclassmembers class * { *** onAsrClick(...); }
+
