@@ -13,7 +13,7 @@ import com.aksharspeech.aksharasr.asr.AksharASR;
  * @author amitkumarsah
  * 
  */
-public class CyberNASR extends Activity {
+public class AksharASRActivity extends Activity {
 	AksharASR cnSpeechRecoz = null;
 
 	@Override
@@ -47,7 +47,6 @@ public class CyberNASR extends Activity {
 		super.onStart();
 		if(cnSpeechRecoz!=null)
 		cnSpeechRecoz.onStart();
-		// cnSpeechRecoz = new RemoteASR(this);
 	}
 
 	@Override

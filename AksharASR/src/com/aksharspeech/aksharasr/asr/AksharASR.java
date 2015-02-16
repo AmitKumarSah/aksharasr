@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -214,19 +213,10 @@ public class AksharASR {
 	 */
 	private void doPostData(String response) {
 		Log.i("doPostData", response);
-		// String a=response.substring(response.indexOf("#RESULT=")+8);
-		// Log.i("AMIT", "a=@"+a);
-		//
-		// StringTokenizer tok = new StringTokenizer(response, "#");
-		//
-		// tok.nextToken();
-
 		doOnUI("You asked for " + response.substring(response.indexOf("#RESULT=")+8) + ".");
 		mIsDecoding = false;
 		resetText();
-
 	}
-
 	// File Uploading section
 	/**
 	 * After the Error Message is over.
@@ -244,40 +234,7 @@ public class AksharASR {
 
 	}
 
-	/**
-	 * Its handler for Audio Uploaded to decode the audio file
-	 * 
-	 * @param response
-	 *            Message received from server
-	 */
-	@SuppressWarnings("unused")
-	private void doPostUpload(String response) {
-		Log.i("doPostUpload", response);
-		Thread th = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Looper.prepare();
-				String response = mFileUpload.getPostData(Constants.mDecodeURL,
-						getEMINumber(mAct));
-				if (response != null && response.contains("Error")) {
-					Log.e("doPostUpload_error", response);
-					doTost(response);
-					doPostError();
-					Looper.myLooper().quit();
-
-				} else {
-
-					doPostData(response);
-					Looper.myLooper().quit();
-				}
-				Looper.loop();
-			}
-		}, "POST_GET_DATA_THREAD");
-
-		th.start();
-
-	}
-
+	
 	/**
 	 * Its handler for Audio Uploaded to decode the audio file
 	 * 
@@ -471,9 +428,7 @@ public class AksharASR {
 	 * It will reset the text The TextView UI
 	 */
 	private void resetText() {
-
 		Thread th = new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				try {
@@ -578,9 +533,7 @@ public class AksharASR {
 			sData[i] = 0;
 		}
 		return bytes;
-
 	}
-
 	/**
 	 * stop recording Akshar
 	 */
@@ -654,9 +607,7 @@ public class AksharASR {
 						Looper.myLooper().quit();
 						return;
 					}
-
 				} else {
-
 					Log.i(Constants.Tag, "File not present=" + audiofilename);
 					doPostError();
 					Looper.myLooper().quit();
@@ -669,20 +620,16 @@ public class AksharASR {
 					doTost(response);
 					doPostError();
 					Looper.myLooper().quit();
-
 				} else {
 					doOnUIText("Recognizing....");
 					doPostUpload_NEW(response);
-
 					Looper.myLooper().quit();
 				}
 				Looper.loop();
 			}
 		}, "FileUploaderThread");
 		th.start();
-
 	}
-
 	private void writeAudioDataToFileWithGain() {
 		short data[] = new short[bufferSize];
 		String filename = this.mTempAudioFile;
@@ -800,8 +747,6 @@ public class AksharASR {
 		header[41] = (byte) ((totalAudioLen >> 8) & 0xff);
 		header[42] = (byte) ((totalAudioLen >> 16) & 0xff);
 		header[43] = (byte) ((totalAudioLen >> 24) & 0xff);
-
 		out.write(header, 0, 44);
 	}
-
 }
