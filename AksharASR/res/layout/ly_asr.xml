@@ -4,6 +4,7 @@
 	android:layout_height="match_parent"
 	android:gravity="center_horizontal"
 	android:orientation="vertical" >
+	
 	<ImageButton
 		android:id="@+id/asrBTNRecord"
 		style="@android:style/MediaButton"

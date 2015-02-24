@@ -2,13 +2,9 @@
  * 
  */
 package com.aksharspeech.aksharasr.asr;
-
-//import android.content.Context;
-//import android.telephony.TelephonyManager;
-
 /**
  * @author amitkumarsah
- * 
+* @version 2.1
  */
 public class Utils {
 

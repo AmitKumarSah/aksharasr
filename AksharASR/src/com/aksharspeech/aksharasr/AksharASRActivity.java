@@ -11,6 +11,7 @@ import com.aksharspeech.aksharasr.asr.AksharASR;
 
 /**
  * @author amitkumarsah
+ * @version 2.1
  * 
  */
 public class AksharASRActivity extends Activity {
